@@ -53,20 +53,20 @@ export const forgetPassword = async (req, res, next) => {
 };
 
 // // reset password
-// export const resetPassword = async (req,res) => {
-//   try {
-//     console.log('reset password', req.body);
-//     const data = await UserService.resetPassword(req.body);
-//     res.status(HttpStatus.CREATED).json({
-//       code: HttpStatus.CREATED,
-//       data: data,
-//       message: 'Password had been reset'
-//     });
-//   } catch (error) {
-//     res.status(HttpStatus.CREATED).json({
-//     code: HttpStatus.CREATED,
-//     message:'Cannot reset'
-//     })
-//   }
-// }
+export const resetPassword = async (req,res) => {
+  try {
+    console.log('reset password', req.body);
+    const data = await UserService.resetPassword(req.body);
+    res.status(HttpStatus.CREATED).json({
+      code: HttpStatus.CREATED,
+      data: data,
+      message: 'Password had been reset'
+    });
+  } catch (error) {
+    res.status(HttpStatus.CREATED).json({
+    code: HttpStatus.CREATED,
+    message:'Cannot reset'
+    })
+  }
+}
 
