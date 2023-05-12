@@ -57,13 +57,13 @@ export const deleteNote = async (_id,value) => {
   };
 
 //   // trash note by id
-//   export const trashNote = async (_id,value) => {
-//     const dataTrash = await note.findOne({_id,userId:value.userId});
+  export const trashNote = async (_id,value) => {
+    const dataTrash = await note.findOne({_id,userId:value.userId});
     
-//     if(!dataTrash){
-//       throw new Error("Note not found");
-//     }
-//     dataTrash.isTrash = !dataTrash.isTrash;
-//     const trashedNote = await dataTrash.save();
-//     return trashedNote;
-//   };
+    if(!dataTrash){
+      throw new Error("Note not found");
+    }
+    dataTrash.isTrash = !dataTrash.isTrash;
+    const trashedNote = await dataTrash.save();
+    return trashedNote;
+  };
