@@ -46,15 +46,15 @@ export const deleteNote = async (_id,value) => {
     return '';
   };
 //   // Archive note by id
-//   export const archiveNote = async (_id,body) => {
-//     const note = await note.findOne({ id:_id , userId: body.userId });
-//   const pinned = note.pinned === false ? true : false;
-//   const data = await note.findByIdAndUpdate(
-//     { id:_id, userId: body.userId },
-//     { pinned: pinned }
-//   );
-//   return data;
-//   };
+  export const archiveNote = async (_id,body) => {
+    const note = await note.findOne({ id:_id , userId: body.userId });
+  const pinned = note.pinned === false ? true : false;
+  const data = await note.findByIdAndUpdate(
+    { id:_id, userId: body.userId },
+    { pinned: pinned }
+  );
+  return data;
+  };
 
 //   // trash note by id
 //   export const trashNote = async (_id,value) => {
