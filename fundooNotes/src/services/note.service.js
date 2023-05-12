@@ -41,10 +41,10 @@ export const getNoteId = async (_id,value) => {
   };
 
 // // Delete Note By Id
-// export const deleteNote = async (_id,value) => {
-//     await note.findByIdAndDelete({_id,userId:value.userId});
-//     return '';
-//   };
+export const deleteNote = async (_id,value) => {
+    await note.findByIdAndDelete({_id,userId:value.userId});
+    return '';
+  };
 //   // Archive note by id
 //   export const archiveNote = async (_id,body) => {
 //     const note = await note.findOne({ id:_id , userId: body.userId });

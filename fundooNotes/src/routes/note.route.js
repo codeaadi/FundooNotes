@@ -10,7 +10,7 @@ router.get('',userAuth, noteController.getAllNote);
 router.post('',newNoteValidator,userAuth, noteController.createNote);
 router.get('/:_id',userAuth,noteController.getNoteId);
 router.put('/:_id',userAuth,newNoteValidator,noteController.updatedNote)
-// router.delete('/:_id',userAuth,noteController.deleteNote)
+router.delete('/:_id',userAuth,noteController.deleteNote)
 // router.put('/archive/:_id',userAuth,noteController.archiveNote)
 // router.put('/trash/:_id',userAuth,noteController.trashNote)
-// export default router;
+export default router;
