@@ -19,7 +19,7 @@ export const registerUser = async (req, res, next) => {
     next(error);
   }
 };
-login user
+// login user
 export const loginUser = async (req, res, next) => {
   try {
     const data = await UserService.loginUser(req.body);
