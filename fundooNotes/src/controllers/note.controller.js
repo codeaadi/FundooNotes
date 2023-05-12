@@ -18,25 +18,25 @@ export const createNote = async (req, res, next) => {
       next(error);
     }
   };
-//   /**
-//  * Controller to create a new user
-//  * @param  {object} req - request object
-//  * @param {object} res - response object
-//  * @param {Function} next
-//  */
-// export const getAllNote = async (req, res, next) => {
-//     try {
+  /**
+ * Controller to create a new user
+ * @param  {object} req - request object
+ * @param {object} res - response object
+ * @param {Function} next
+ */
+export const getAllNote = async (req, res, next) => {
+    try {
     
-//       const data = await noteService.getAllNote(req.body);
-//       res.status(HttpStatus.CREATED).json({
-//         code: HttpStatus.CREATED,
-//         data: data,
-//         message: 'fetched all notes successfully'
-//       });
-//     } catch (error) {
-//       next(error);
-//     }
-//   };
+      const data = await noteService.getAllNote(req.body);
+      res.status(HttpStatus.CREATED).json({
+        code: HttpStatus.CREATED,
+        data: data,
+        message: 'fetched all notes successfully'
+      });
+    } catch (error) {
+      next(error);
+    }
+  };
 //   /**
 //  * Controller to update a user
 //  * @param  {object} req - request object
