@@ -23,22 +23,22 @@ export const getNoteId = async (_id,value) => {
   };
 
 // //   updateNote Using Id
-//   export const updateNote = async (_id, body,value) => {
+  export const updateNote = async (_id, body,value) => {
 
-//     const data = await note.findByIdAndUpdate(
-//       {
-//         userId:value.userId
-//       },
-//       {
-//         _id
-//       },
-//       body,
-//       {
-//         new: true
-//       }
-//     );
-//     return data;
-//   };
+    const data = await note.findByIdAndUpdate(
+      {
+        userId:value.userId
+      },
+      {
+        _id
+      },
+      body,
+      {
+        new: true
+      }
+    );
+    return data;
+  };
 
 // // Delete Note By Id
 // export const deleteNote = async (_id,value) => {
