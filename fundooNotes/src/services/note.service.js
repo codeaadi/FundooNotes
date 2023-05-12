@@ -7,10 +7,10 @@
 
 // // // Create New Note
 
-// export const createNote = async (body) => {
-//     const data = await note.create(body)
-//     return data;
-// }
+export const createNote = async (body) => {
+    const data = await note.create(body)
+    return data;
+}
 // // get all Notes
 // export const getAllNote = async (value) => {
 //     const data = await note.find({userId:value.userId});

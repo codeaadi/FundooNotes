@@ -6,7 +6,7 @@
 // const router = express.Router();
 
 // //route to Register a new user
-// router.get('',userAuth, noteController.getAllNote);
+router.get('',userAuth, noteController.getAllNote);
 // router.post('',newNoteValidator,userAuth, noteController.createNote);
 // router.get('/:_id',userAuth,noteController.getNoteId);
 // router.put('/:_id',userAuth,newNoteValidator,noteController.updatedNote)
