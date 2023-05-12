@@ -19,22 +19,22 @@ export const registerUser = async (req, res, next) => {
     next(error);
   }
 };
-//login user
-// export const loginUser = async (req, res, next) => {
-//   try {
-//     const data = await UserService.loginUser(req.body);
-//     res.status(HttpStatus.CREATED).json({
-//       code: HttpStatus.CREATED,
-//       data: data,
-//       message: 'User login  successfully'
-//     });
-//   } catch (error) {
-//     res.status(HttpStatus.CREATED).json({
-//       code: HttpStatus.CREATED,
-//       message:'Invalid email'
-//       })
-//   }
-// };
+login user
+export const loginUser = async (req, res, next) => {
+  try {
+    const data = await UserService.loginUser(req.body);
+    res.status(HttpStatus.CREATED).json({
+      code: HttpStatus.CREATED,
+      data: data,
+      message: 'User login  successfully'
+    });
+  } catch (error) {
+    res.status(HttpStatus.CREATED).json({
+      code: HttpStatus.CREATED,
+      message:'Invalid email'
+      })
+  }
+};
 // // forgot password
 // export const forgetPassword = async (req, res, next) => {
 //   try {

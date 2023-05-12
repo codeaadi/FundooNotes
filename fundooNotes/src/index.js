@@ -28,7 +28,7 @@ app.use(helmet());
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 app.use(morgan('combined', { stream: logStream }));
-app.use('/api-docs', swaggerUI.serve, swaggerUI.setup(swaggerDocument));
+// app.use('/api-docs', swaggerUI.serve, swaggerUI.setup(swaggerDocument));
 
 database();
 
