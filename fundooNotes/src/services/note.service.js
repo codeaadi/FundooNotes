@@ -11,11 +11,11 @@ export const createNote = async (body) => {
     const data = await note.create(body)
     return data;
 }
-// // get all Notes
-// export const getAllNote = async (value) => {
-//     const data = await note.find({userId:value.userId});
-//     return data;
-//   };
+// get all Notes
+export const getAllNote = async (value) => {
+    const data = await note.find({userId:value.userId});
+    return data;
+  };
 // //   get Note by Id 
 // export const getNoteId = async (_id,value) => {
 //     const data = await note.findById({_id,userId:value.userId});
