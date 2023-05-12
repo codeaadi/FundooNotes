@@ -20,20 +20,20 @@ export const registerUser = async (body) => {
   }
 };
 // login User
-// export const loginUser = async (body) => {
-//   const searchUser = await User.findOne({email:body.email});
-//   if (searchUser) {
-//     if (bcrypt.compareSync(body.password,searchUser.password)) {
-//       let jwt = require('jsonwebtoken');
-//       let token = jwt.sign({email:searchUser.email,_id:searchUser._id}, process.env.secretkey);
-//       return token
-//     } else {
-//       throw new Error('Invalid password');
-//     }
-//   } else {
-//     throw new Error(res.status(404).sent({success:false,msg:"User Not Found"} ));
-//   }
-// };
+export const loginUser = async (body) => {
+  const searchUser = await User.findOne({email:body.email});
+  if (searchUser) {
+    if (bcrypt.compareSync(body.password,searchUser.password)) {
+      let jwt = require('jsonwebtoken');
+      let token = jwt.sign({email:searchUser.email,_id:searchUser._id}, process.env.secretkey);
+      return token
+    } else {
+      throw new Error('Invalid password');
+    }
+  } else {
+    throw new Error(res.status(404).sent({success:false,msg:"User Not Found"} ));
+  }
+};
 // // forgetpassword
 // export const forgetPassword = async (body) => {
 //   const searchUser = await User.findOne({email:body.email});
