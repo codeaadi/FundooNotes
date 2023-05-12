@@ -49,18 +49,18 @@ export const forgetPassword = async (body) => {
 }
 
 // // reset Password
-// export const resetPassword = async (body) => {
-//   const token = body.params.token;
-//    const tokenData = await User.findOne({token:token})
-//    if(tokenData){
-//         const password = tokenData.password
-//         const hash = bcrypt.hashSync(password, salt);
-//             password = hash
-//         const newPassword = password
-//         const userData = await User.findByIdAndUpdate({_id:tokenData.id},{$set:{password:newPassword,token:''}},{new:true})
-//         return userData
-//    }else
-//    {throw new error(res.status(404).sent({success:true,msg:"User not found"}))}
-//   }
+export const resetPassword = async (body) => {
+  const token = body.params.token;
+   const tokenData = await User.findOne({token:token})
+   if(tokenData){
+        const password = tokenData.password
+        const hash = bcrypt.hashSync(password, salt);
+            password = hash
+        const newPassword = password
+        const userData = await User.findByIdAndUpdate({_id:tokenData.id},{$set:{password:newPassword,token:''}},{new:true})
+        return userData
+   }else
+   {throw new error(res.status(404).sent({success:true,msg:"User not found"}))}
+  }
 
 
