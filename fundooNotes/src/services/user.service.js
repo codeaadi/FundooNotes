@@ -35,18 +35,18 @@ export const loginUser = async (body) => {
   }
 };
 // // forgetpassword
-// export const forgetPassword = async (body) => {
-//   const searchUser = await User.findOne({email:body.email});
-//   const email = searchUser.email;
-//   if(searchUser) {
-//     let randomString = randomstring.generate();
-//     const data = await User.updateOne({email:email},{$set:{token:randomString}})
-//     emailSender(email,randomString)
-//     res.status(200).send({success:true,msg:"Mail sent successfully"})
-//   }else {
-//     throw new error(res.status(404).sent({success:false,msg:"User not found"}))
-//   }
-// }
+export const forgetPassword = async (body) => {
+  const searchUser = await User.findOne({email:body.email});
+  const email = searchUser.email;
+  if(searchUser) {
+    let randomString = randomstring.generate();
+    const data = await User.updateOne({email:email},{$set:{token:randomString}})
+    emailSender(email,randomString)
+    res.status(200).send({success:true,msg:"Mail sent successfully"})
+  }else {
+    throw new error(res.status(404).sent({success:false,msg:"User not found"}))
+  }
+}
 
 // // reset Password
 // export const resetPassword = async (body) => {

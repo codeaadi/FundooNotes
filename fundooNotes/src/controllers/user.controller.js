@@ -19,7 +19,7 @@ export const registerUser = async (req, res, next) => {
     next(error);
   }
 };
-login user
+// login user
 export const loginUser = async (req, res, next) => {
   try {
     const data = await UserService.loginUser(req.body);
@@ -36,21 +36,21 @@ export const loginUser = async (req, res, next) => {
   }
 };
 // // forgot password
-// export const forgetPassword = async (req, res, next) => {
-//   try {
-//     const data = await UserService.forgetPassword(req.body);
-//     res.status(HttpStatus.CREATED).json({
-//       code: HttpStatus.CREATED,
-//       data: data,
-//       message: 'Please check  Your mail to reset Password'
-//     });
-//   } catch (error) {
-//     res.status(HttpStatus.CREATED).json({
-//     code: HttpStatus.CREATED,
-//     message:'Invalid email for password reset'
-//     })
-//   }
-// };
+export const forgetPassword = async (req, res, next) => {
+  try {
+    const data = await UserService.forgetPassword(req.body);
+    res.status(HttpStatus.CREATED).json({
+      code: HttpStatus.CREATED,
+      data: data,
+      message: 'Please check  Your mail to reset Password'
+    });
+  } catch (error) {
+    res.status(HttpStatus.CREATED).json({
+    code: HttpStatus.CREATED,
+    message:'Invalid email for password reset'
+    })
+  }
+};
 
 // // reset password
 // export const resetPassword = async (req,res) => {
