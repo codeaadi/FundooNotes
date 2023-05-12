@@ -16,11 +16,11 @@ export const getAllNote = async (value) => {
     const data = await note.find({userId:value.userId});
     return data;
   };
-// //   get Note by Id 
-// export const getNoteId = async (_id,value) => {
-//     const data = await note.findById({_id,userId:value.userId});
-//     return data;
-//   };
+//   get Note by Id 
+export const getNoteId = async (_id,value) => {
+    const data = await note.findById({_id,userId:value.userId});
+    return data;
+  };
 
 // //   updateNote Using Id
 //   export const updateNote = async (_id, body,value) => {
