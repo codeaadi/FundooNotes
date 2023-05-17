@@ -6,6 +6,7 @@ import cors from 'cors';
 import helmet from 'helmet';
 import swaggerUI from 'swagger-ui-express';
 import swaggerDocument from './Swagger/user.swagger.json';
+import { createClient } from 'redis';
 
 import routes from './routes';
 import database from './config/database';
@@ -23,6 +24,9 @@ const host = process.env.APP_HOST;
 const port = process.env.APP_PORT;
 const api_version = process.env.API_VERSION;
 
+export const client = createClient();
+  client.connect();
+  client.on("connect",(err)=>{console.log("connected to redis")})
 app.use(cors());
 app.use(helmet());
 app.use(express.urlencoded({ extended: true }));
