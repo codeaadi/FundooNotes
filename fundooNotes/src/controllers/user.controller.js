@@ -7,7 +7,7 @@ import * as UserService from '../services/user.service';
  * @param {object} res - response object
  * @param {Function} next
  */
-export const registerUser = async (req, res, next) => {
+export const registerUser = async (req, res) => {
   try {
     const data = await UserService.registerUser(req.body);
     res.status(HttpStatus.CREATED).json({
@@ -16,7 +16,10 @@ export const registerUser = async (req, res, next) => {
       message: 'User created successfully'
     });
   } catch (error) {
-    next(error);
+    res.status(HttpStatus.BAD_REQUEST).json({
+      code: HttpStatus.BAD_REQUEST,
+      message:'Bad request'
+      })
   }
 };
 // login user
@@ -29,8 +32,8 @@ export const loginUser = async (req, res, next) => {
       message: 'User login  successfully'
     });
   } catch (error) {
-    res.status(HttpStatus.CREATED).json({
-      code: HttpStatus.CREATED,
+    res.status(HttpStatus.BAD_REQUEST).json({
+      code: HttpStatus.BAD_REQUEST,
       message:'Invalid email'
       })
   }
@@ -45,8 +48,8 @@ export const forgetPassword = async (req, res, next) => {
       message: 'Please check  Your mail to reset Password'
     });
   } catch (error) {
-    res.status(HttpStatus.CREATED).json({
-    code: HttpStatus.CREATED,
+    res.status(HttpStatus.BAD_REQUEST).json({
+    code: HttpStatus.BAD_REQUEST,
     message:'Invalid email for password reset'
     })
   }
@@ -63,8 +66,8 @@ export const resetPassword = async (req,res) => {
       message: 'Password had been reset'
     });
   } catch (error) {
-    res.status(HttpStatus.CREATED).json({
-    code: HttpStatus.CREATED,
+    res.status(HttpStatus.BAD_REQUEST).json({
+    code: HttpStatus.BAD_REQUEST,
     message:'Cannot reset'
     })
   }

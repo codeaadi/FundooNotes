@@ -21,6 +21,9 @@ const noteSchema = new Schema(
     },
     userId: {
       type: String
+    },
+    isPinned: {
+      type: Boolean
     }
     
   },

@@ -25,13 +25,13 @@ export const loginUser = async (body) => {
   if (searchUser) {
     if (bcrypt.compareSync(body.password,searchUser.password)) {
       let jwt = require('jsonwebtoken');
-      let token = jwt.sign({email:searchUser.email,_id:searchUser._id}, process.env.secretkey);
+      let token = jwt.sign({email:searchUser.email,_id:searchUser._id}, process.env.secretkey);6
       return token
     } else {
       throw new Error('Invalid password');
     }
   } else {
-    throw new Error(res.status(404).sent({success:false,msg:"User Not Found"} ));
+    // throw new Error(res.status(404).sent({success:false,msg:"User Not Found"} ));  change
   }
 };
 // // forgetpassword

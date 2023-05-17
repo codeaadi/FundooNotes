@@ -1,9 +1,11 @@
-// import { error, log } from 'winston';
-// import database from '../config/database';
-// import noteModel from '../models/note.model';
-// import note from '../models/note.model';
-// import bcrypt from 'bcrypt';
-// import { Jwt } from 'jsonwebtoken';
+import { error, log } from 'winston';
+import database from '../config/database';
+import noteModel from '../models/note.model';
+import note from '../models/note.model';
+import bcrypt from 'bcrypt';
+import { Jwt } from 'jsonwebtoken';
+import { client } from '..';
+import { promisify } from 'util';
 
 // // // Create New Note
 
@@ -14,12 +16,14 @@ export const createNote = async (body) => {
 // get all Notes
 export const getAllNote = async (value) => {
     const data = await note.find({userId:value.userId});
+    client.set("note",JSON.stringify({data}));
     return data;
   };
 //   get Note by Id 
 export const getNoteId = async (_id,value) => {
     const data = await note.findById({_id,userId:value.userId});
-    return data;
+    client.set("note", JSON.stringify({data}));
+    return data;  
   };
 
 // //   updateNote Using Id
@@ -37,12 +41,14 @@ export const getNoteId = async (_id,value) => {
         new: true
       }
     );
+    client.set("note", JSON.stringify({data}));
     return data;
   };
 
 // // Delete Note By Id
 export const deleteNote = async (_id,value) => {
     await note.findByIdAndDelete({_id,userId:value.userId});
+    client.set("note", JSON.stringify({data:" "}));
     return '';
   };
 //   // Archive note by id
@@ -67,3 +73,13 @@ export const deleteNote = async (_id,value) => {
     const trashedNote = await dataTrash.save();
     return trashedNote;
   };
+  // pin note by id
+  export const pinNote = async (_id,value)=>{
+    const pinnednote = await note.findOne({_id,userId:value.userId});
+    if(pinnednote){
+      throw new Error("Note Not Found")
+    }
+    pinnednote.isPinned= !pinnednote.isPinned
+    const notePin= await pinnednote.save()
+    return notePin
+  }

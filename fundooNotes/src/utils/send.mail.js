@@ -10,7 +10,6 @@ const oAuth2Client = new google.auth.OAuth2(CLIENT_ID,CLIENT_SECRET,REDIRECT_URI
 oAuth2Client.setCredentials({refresh_token: REFRESH_TOKEN});
 
  export async function emailSender(email,token){
-    console.log("Email--------",email);
     try {
         const accessToken = await oAuth2Client.getAccessToken()
         const transport = nodemailer.createTransport({
